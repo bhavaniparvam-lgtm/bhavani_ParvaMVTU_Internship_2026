@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Form Append to Table</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      input {
+        padding: 8px;
+        margin: 5px;
+      }
+
+      button {
+        padding: 8px 15px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>User Form</h2>
+
+    <!-- Form -->
+    <form id="userForm">
+      <input type="text" id="name" placeholder="Enter Name" required />
+      <input type="email" id="email" placeholder="Enter Email" required />
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter Password"
+        required
+      />
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Table -->
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+    <script>
+      document
+        .getElementById("userForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent page reload
+
+          // Get values
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
+
+          // Create new row
+          let newRow = document.createElement("tr");
+
+          newRow.innerHTML = `
+        <td>${name}</td>
+        <td>${email}</td>
+        <td>${password}</td>
+    `;
+
+          // Append row to table body
+          document.getElementById("tableBody").appendChild(newRow);
+
+          // Clear form
+          document.getElementById("userForm").reset();
+        });
+    </script>
+  </body>
+</html>

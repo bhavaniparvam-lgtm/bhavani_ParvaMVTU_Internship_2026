@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Conditional statements in js</h1>
+    <p>1. if statement</p>
+    <p>2. if-else statement</p>
+    <p>3. else-if ladder</p>
+    <p>4. switch statement</p>
+
+    <script>
+      let age = 23;
+      //if(condition){
+      // code
+      // }
+      //   if (age >= 18) {
+      //     console.log("You are eligible to vote");
+      //   }
+
+      //   if (age >= 18) {
+      //     console.log("You are eligible to vote");
+      //   } else {
+      //     console.log("You are not eligible to vote");
+      //   }
+
+      if (age < 18) {
+        // Executes if condition1 is true
+        console.log("u are underage");
+      } else if (age == 18) {
+        // Executes if condition2 is true
+        console.log("Start of voting age");
+      } else {
+        // Executes if none of the above are true
+        console.log("u are eligible");
+      }
+
+      let day;
+      switch (new Date().getDay()) {
+        case 0:
+          day = "Sunday";
+          break;
+        case 1:
+          day = "Monday";
+          break;
+        case 2:
+          day = "Tuesday";
+          break;
+        case 3:
+          day = "Wednesday";
+          break;
+        case 4:
+          day = "Thursday";
+          break;
+        case 5:
+          day = "Friday";
+          break;
+        case 6:
+          day = "Saturday";
+      }
+      console.log(day); // Output will be the current day of the week
+
+      /*
+      switch(expression){
+      case value1:{
+        code
+        break;
+        ....
+        }
+        }
+      */
+    </script>
+  </body>
+</html>

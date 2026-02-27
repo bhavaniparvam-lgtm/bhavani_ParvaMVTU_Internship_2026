@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Loops in js</h1>
+    <p>
+      1. for loop - traverse till the condition, if we know the number of
+      iterations
+    </p>
+    <p>
+      2. while loop - if we don't know the number of iterations, (pre-check)
+    </p>
+    <p>
+      3. do-while loop - if we don't know the number of iterations, (post-check)
+    </p>
+    <p>4. for-of loop - to traverse the array</p>
+    <p>5. for in loop - to get the keys of an object</p>
+
+    <script>
+      //for loop
+      let i = 5;
+      //   for (let j = 1; j <= i; j++) {
+      //     console.log(j);
+      //   }
+      for (let j = 1; j <= 10; j++) {
+        // console.log(i, "*", j, "=", i * j);
+        console.log(`${i}*${j}=${i * j}`);
+      }
+
+      //for-of loop
+      const arr = [10, 20, 30, 40, 50];
+      for (let value of arr) {
+        console.log(value);
+      }
+
+      //for in loop
+      const student = { firstname: "Annika", age: 24 };
+      for (let key in student) {
+        console.log(`${key}:${student[key]}`);
+      }
+      let number;
+
+      // Keep asking until user enters multiple of 5
+      while (true) {
+        number = parseFloat(prompt("Enter a multiple of 5 to exit"));
+
+        if (number % 5 === 0) {
+          document.write(`<h2>${number} is a multiple of 5! Loop ended. </h2>`);
+          break; // Exit the loop
+        } else {
+          document.write(`<p>${number} is NOT a multiple of 5. Try again!</p>`);
+        }
+      }
+
+      let number1;
+
+      do {
+        number1 = parseFloat(prompt("Enter a multiple of 5 to exit:"));
+        document.write(`<p>You entered: ${number1}</p>`);
+
+        if (number1 % 5 !== 0) {
+          document.write("<p> NOT a multiple of 5. Try again!</p>");
+        }
+      } while (number1 % 5 !== 0); // Loops until multiple of 5
+
+      document.write(`<h2>${number1} is a multiple of 5! Done!</h2>`);
+    </script>
+  </body>
+</html>

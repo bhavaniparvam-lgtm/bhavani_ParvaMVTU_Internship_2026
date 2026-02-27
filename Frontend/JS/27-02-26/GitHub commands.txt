@@ -1,0 +1,11 @@
+GitHub commands :
+=================
+1. git init ---> to initialize the git repo in cwd
+2. git clone "url" ---> to clone the remote repo in local
+3. git status ---> to check the status of repo
+4. git add . ---> to stage the files in cwd
+5. git commit -m "message" ---> to commit changes
+6. git push origin main ---> to push the code from local to remote
+7. git pull origin main ---> to pull the code from remote to local
+8. git config --global user.name "user name" ---> to configure the credentials in global
+9. git config --global user.email "email" ---> to configure the credentials in global

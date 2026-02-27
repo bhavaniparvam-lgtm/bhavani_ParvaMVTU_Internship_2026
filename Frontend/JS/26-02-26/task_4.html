@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../26-02-26/task_4.js"></script>
+  </head>
+  <body>
+    <script>
+      function scopeTest() {
+        // Function scope declarations
+        let a = 1; // Block scoped
+        var b = 2; // Function scoped
+        const c = 3; // Block scoped (cannot reassign)
+
+        console.log("Before block:", { a, b, c }); // {1, 2, 3}
+
+        // BLOCK SCOPE TEST
+        {
+          let a = 10; // New variable, shadows outer 'let a'
+          var b = 20; // Modifies outer 'var b' (no block scope)
+          const c = 30; // New variable, shadows outer 'const c'
+
+          console.log("Inside block:", { a, b, c }); // {10, 20, 30}
+        }
+
+        console.log("After block:", { a, b, c });
+        // Output: {1, 20, 3}
+        /*
+  EXPLANATION:
+  - let a: 1 (unchanged - block scoped, inner created new variable)
+  - var b: 20 (changed - function scoped, block doesn't create new var)
+  - const c: 3 (unchanged - block scoped, inner shadowed outer)
+  */
+      }
+
+      scopeTest();
+    </script>
+    <script>
+      // Primitive vs Reference Types Example
+      function primitiveVsReference() {
+        // PRIMITIVE (Number - copied by VALUE)
+        let num = 5;
+        let numCopy = num; // Copies the VALUE 5
+
+        numCopy = 10; // Changes ONLY the copy
+
+        console.log("Primitive:", { original: num, copy: numCopy });
+        // Output: { original: 5, copy: 10 } - INDEPENDENT!
+
+        // REFERENCE (Array - copied by REFERENCE)
+        let arr = [1, 2, 3];
+        let arrCopy = arr; // Copies the REFERENCE (same array!)
+
+        arrCopy[0] = 99; // Modifies the ORIGINAL array too!
+
+        console.log("Reference:", { original: arr, copy: arrCopy });
+        // Output: { original: [99, 2, 3], copy: [99, 2, 3] } - SAME ARRAY!
+        console.log("Same reference?", arr === arrCopy); // true
+      }
+
+      primitiveVsReference();
+      /*
+PRIMITIVES (String, Number, Boolean, null, undefined, Symbol, BigInt):
+  - Copied by VALUE 
+  - let x = 5; let y = x; → y = 10 doesn't affect x
+  - Independent copies
+
+OBJECTS/REFERENCES (Array, Object, Function):
+  - Copied by REFERENCE 
+  - let x = [1,2]; let y = x; → y[0] = 99 changes x too!
+  - Both point to SAME memory location
+
+FIX for arrays: Shallow copy
+let arrCopy = [...arr];  // or arr.slice() or Array.from(arr)
+*/
+    </script>
+  </body>
+</html>

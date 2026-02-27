@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What we can do</title>
+  </head>
+  <body>
+    <h1>What we can do</h1>
+    <h3>1. We can change html content</h3>
+    <p id="demo">This is html conent</p>
+    <button
+      onclick="
+        document.getElementById('demo').innerText =
+          'JS will change html content'
+      "
+    >
+      Change content
+    </button>
+
+    <h3>2. We can change html attribute</h3>
+    <img
+      src="../WhatsApp Image 2026-02-23 at 10.24.13 AM.jpeg"
+      alt="off"
+      id="img_id"
+    />
+    <button
+      onclick="
+        document
+          .getElementById('img_id')
+          .setAttribute(
+            'src',
+            '../WhatsApp Image 2026-02-23 at 10.24.13 AM.jpeg',
+          )
+      "
+    >
+      Turn ON
+    </button>
+    <button
+      onclick="
+        document
+          .getElementById('img_id')
+          .setAttribute(
+            'src',
+            '../WhatsApp Image 2026-02-23 at 10.24.12 AM.jpeg',
+          )
+      "
+    >
+      Turn OFF
+    </button>
+
+    <h3>3. We can change css</h3>
+    <p id="demo1">We can change css</p>
+    <button onclick="document.getElementById('demo1').style.color = 'green'">
+      Change css
+    </button>
+
+    <h3>4. We can hide html</h3>
+    <p id="demo2">We can hide html</p>
+    <button onclick="document.getElementById('demo2').style.display = 'none'">
+      Hide html
+    </button>
+
+    <h3>4. We can hide html</h3>
+    <p id="demo3" style="display: none">We can show html</p>
+    <button onclick="document.getElementById('demo3').style.display = 'block'">
+      Show html
+    </button>
+
+    
+  </body>
+</html>

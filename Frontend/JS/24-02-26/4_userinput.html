@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>User input in js</h1>
+    <p>prompt() - take input as string</p>
+
+    <script>
+      const marks = +prompt("enter the marks");
+      console.log("your marks", marks);
+      switch (marks) {
+        case marks >= 90:
+          console.log("a");
+        case marks >= 80:
+          console.log("b");
+        case marks >= 70:
+          console.log("c");
+        case marks >= 60:
+          console.log("d");
+        default:
+          console.log("f"); // Fail
+      }
+    </script>
+  </body>
+</html>

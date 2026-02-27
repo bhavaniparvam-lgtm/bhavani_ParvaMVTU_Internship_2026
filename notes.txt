@@ -1,0 +1,9 @@
+Web development?
+building a we application
+
+2 branches:
+Frontend - HTML CSS JS BootStrap + (React)
+Backend
+Java - Basics advance oops spring + Mysql
+Python - basics advance oops django Mysql
+ML - basics, advance algorithms model training

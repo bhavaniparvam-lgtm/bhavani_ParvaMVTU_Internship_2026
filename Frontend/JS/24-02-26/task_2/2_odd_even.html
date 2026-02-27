@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even or Odd Checker</title>
+  </head>
+  <body>
+    <h2>Enter a number to check if it's even or odd:</h2>
+    <script>
+      // Take input from user and convert to number
+      const number = parseFloat(prompt("Enter a number:"));
+
+      // Check if even or odd using modulo operator
+      if (number % 2 === 0) {
+        document.write(
+          `<p><strong>${number}</strong> is an <strong>EVEN</strong> number!</p>`,
+        );
+        console.log(number, "is EVEN");
+      } else {
+        document.write(
+          `<p><strong>${number}</strong> is an <strong>ODD</strong> number!</p>`,
+        );
+        console.log(number, "is ODD");
+      }
+    </script>
+  </body>
+</html>

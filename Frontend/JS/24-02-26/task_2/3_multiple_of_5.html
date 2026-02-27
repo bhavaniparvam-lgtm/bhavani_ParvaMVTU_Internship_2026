@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiple of 5 Checker</title>
+  </head>
+  <body>
+    <h2>Enter a number to check if it's a multiple of 5:</h2>
+    <script>
+      // Take input from user and convert to number
+      const number = parseFloat(prompt("Enter a number:"));
+
+      // Check if multiple of 5 (remainder 0 when divided by 5)
+      if (number % 5 === 0) {
+        document.write(
+          `<p><strong>${number}</strong> is a <strong>MULTIPLE</strong> of 5! </p>`,
+        );
+        console.log(number, "is a MULTIPLE of 5");
+      } else {
+        document.write(
+          `<p><strong>${number}</strong> is <strong>NOT</strong> a multiple of 5. </p>`,
+        );
+        console.log(number, "is NOT a multiple of 5");
+      }
+    </script>
+  </body>
+</html>

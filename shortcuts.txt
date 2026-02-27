@@ -1,0 +1,7 @@
+ctrl+? - commenting
+shift+alt+bottom - cloning
+alt+z - wrapping
+! - for basic structure boiler plate
+ctrl+d - for multiple cursor
+lorem50 - for dummy text
+li*5 - for multiple list tags

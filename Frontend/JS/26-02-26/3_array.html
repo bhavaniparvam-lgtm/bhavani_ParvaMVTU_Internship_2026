@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Array in JS</h1>
+    <pre>
+        1. push *
+        2. pop *
+        3. shift
+        4. unshift
+        5. indexOf *
+        6. forEach * to traverse
+        7. map * used to create a new array by performing operation on each element
+        8. filter *
+        9. reduce *
+        10. sort 
+        11. find 
+        12. splice 
+        13. each 
+        14. some
+            
+    </pre>
+
+    <script>
+      const arr = [1, 2, 3, 4, 5];
+      console.log(arr);
+      //push
+      arr.push(6);
+      console.log(arr);
+      //pop
+      arr.pop();
+      console.log(arr);
+      //shift
+      arr.shift();
+      console.log(arr);
+      //unshift
+      arr.unshift(0);
+      console.log(arr);
+      //indexOf
+      const i = arr.indexOf(5);
+      console.log(i);
+      //forEach
+      const arr1 = [1, 2.3, true, "world", { name: "annika" }];
+      arr1.forEach((ele, index, arr2) => {
+        console.log("Ele", ele, "index:", index, "array:", arr2);
+      });
+      //map
+      const arr2 = [2, 4, 6, 8, 10];
+      const arr3 = arr2.map((ele) => {
+        return ele * ele;
+      });
+      console.log(arr3);
+      //filter
+      const arr4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+      const arr5 = arr4.filter((ele, index, arr5) => {
+        return ele % 2 == 0;
+      });
+      console.log(arr5);
+      //reduce
+      const res6 = arr4.reduce((pre, cur) => {
+        return pre + cur;
+      }, 10);
+      console.log(res6);
+    </script>
+  </body>
+</html>

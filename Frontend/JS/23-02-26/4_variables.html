@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Variables in JS</h1>
+    <p>4 ways to create a variables in js</p>
+    <h3>1. automatically</h3>
+    <h3>2. var keyword(not a block scope)-can be re declared</h3>
+    <h3>3. let keyword(block scope)-can re initialize</h3>
+    <h3>4. const keyword(block space)-neither re declare nor re assign</h3>
+
+    <script>
+      //automatically-->not recommended to use
+      first_name = "john";
+      console.log("the first name is:", first_name);
+
+      //var
+      var last_name = "john";
+      console.log("the last name is:", last_name);
+
+      //let
+      let age = 22;
+      console.log("Age:", age);
+
+      //const
+      const pi = 3.14;
+      console.log("pi:", pi);
+    </script>
+    <script>
+      //re declaring variables
+      var gender = "M";
+      console.log("gender:", gender);
+      var gender = "F";
+      console.log("gender:", gender);
+
+      //re initialize but can't re declare
+
+      let marks = 90;
+      console.log("marks:", marks);
+      marks = 95;
+      console.log("marks:", marks);
+
+      //neither re declare nor re initialize
+
+      const country = "India";
+      console.log("country:", country);
+      //   country = "usa";
+      //   console.log("country:", country);
+
+      {
+        var city = "blg";
+        console.log("city:", city);
+      }
+      console.log("city:", city);
+
+      {
+        let state = "kar";
+        console.log("state:", state);
+      }
+      //   console.log("state:", state);
+    </script>
+  </body>
+</html>

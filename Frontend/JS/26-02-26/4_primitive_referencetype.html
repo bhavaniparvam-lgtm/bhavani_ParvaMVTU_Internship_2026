@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Primitive vs Reference Types</h1>
+
+    <script>
+      //static memory so different values
+      let x = 40;
+      let y = x;
+      console.log(`Before Changiing Value: x : ${x}`);
+      console.log(`Before Changiing Value: y : ${y}`);
+      x = 50;
+      console.log(`After Changiing Value: x : ${x}`);
+      console.log(`After Changiing Value: y : ${y}`);
+
+      //heap memory so same values
+      const arr = [1, 2, 3, 4];
+      const arr2 = arr;
+      console.log(`Before Changiing Value: x : ${arr}`);
+      console.log(`Before Changiing Value: y : ${arr2}`);
+      arr.push(5);
+      console.log(`Before Changiing Value: x : ${arr}`);
+      console.log(`Before Changiing Value: y : ${arr2}`);
+
+      /*Before Changiing Value: x : 40
+        Before Changiing Value: y : 40
+        After Changiing Value: x : 50
+        After Changiing Value: y : 40
+        Before Changiing Value: x : 1,2,3,4
+        Before Changiing Value: y : 1,2,3,4
+        Before Changiing Value: x : 1,2,3,4,5
+        Before Changiing Value: y : 1,2,3,4,5*/
+    </script>
+  </body>
+</html>

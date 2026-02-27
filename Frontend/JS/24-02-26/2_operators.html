@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Operators in JS</h1>
+    <p>1. Arithematic operators - +,-,*,/,%,**</p>
+    <p>2. Assignment operators - =,+=,-=,*=,/=,%=</p>
+    <p>3. Comparison operators - ==(value),===(reference),!=,!==,>,<,<=,>=</p>
+    <p>4. Logical operators - &&,||,!</p>
+    <p>5. Bitwise operators - &,|,^,~,<<,>>,>>></p>
+
+    <script>
+      let marks1 = 87;
+      let marks2 = "87";
+      console.log("type of marks1:", typeof marks1);
+      console.log("type of marks2:", typeof marks2);
+      console.log(" marks1==marks2", marks1 != marks2);
+      console.log(" marks1==marks2", marks1 !== marks2);
+
+      //arithmatic operators
+      // Demonstrating all arithmetic operators
+      let x = 10,
+        y = 3;
+
+      console.log("Addition:", x + y);
+      console.log("Subtraction:", x - y);
+      console.log("Multiplication:", x * y);
+      console.log("Division:", x / y);
+      console.log("Modulus:", x % y);
+      console.log("Exponentiation:", x ** y);
+
+      let b = 5;
+      console.log("Increment:", ++b); // Pre-increment
+      console.log("Decrement:", --b); // Pre-decrement
+
+      //assignment operators
+      let a = 5;
+      a += 3; // a = 8
+      a *= 2; // a = 16
+      a -= 4; // a = 12
+      a /= 3; // a = 4
+      a **= 2; // a = 16
+
+      let c = null;
+      c ??= 10; // b = 10 (only assigns if b is null or undefined)
+
+      console.log(true && true); // true
+      console.log(true && false); // false
+      console.log(5 > 3 && 10 > 5); // true
+      console.log(true || false); // true
+      console.log(false || false); // false
+      console.log(5 > 10 || 10 > 5); // true
+      console.log(!true); // false
+      console.log(!false); // true
+      console.log(!(5 > 3)); // false
+    </script>
+    <script>
+      // Bitwise Operators Demo in JavaScript
+
+      // Sample numbers
+      let e = 5; // Binary: 0101
+      let f = 3; // Binary: 0011
+
+      console.log("a =", e, "b =", f);
+
+      // AND (&)
+      console.log("a & b =", e & f); // 0101 & 0011 = 0001 (1)
+
+      // OR (|)
+      console.log("a | b =", e | f); // 0101 | 0011 = 0111 (7)
+
+      // XOR (^)
+      console.log("a ^ b =", e ^ f); // 0101 ^ 0011 = 0110 (6)
+
+      // NOT (~)
+      console.log("~a =", ~e); // ~0101 = 1010 (Two's complement: -6)
+
+      // Left Shift (<<)
+      console.log("a << 1 =", e << 1); // 0101 << 1 = 1010 (10)
+
+      // Right Shift (>>)
+      console.log("a >> 1 =", e >> 1); // 0101 >> 1 = 0010 (2)
+
+      // Zero-fill Right Shift (>>>)
+      console.log("a >>> 1 =", e >>> 1); // 0101 >>> 1 = 0010 (2)
+
+      // Negative number with >>> (zero-fill)
+      let neg = -5; // Binary (32-bit signed): 11111111111111111111111111111011
+      console.log("neg >>> 1 =", neg >>> 1); // Large positive number due to zero-fill
+    </script>
+  </body>
+</html>
