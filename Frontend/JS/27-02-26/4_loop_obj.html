@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const obj1 = {
+        firstName: "Lennox",
+        lastName: "Annika",
+        //if there is a space in key it should be in ""
+        "kannada marks": 60,
+        marks: 50.8,
+        isPass: true,
+        isWalking: () => {
+          console.log("yes he is walking");
+        },
+        marks1: [20, 40, 50, 60],
+        isSleeping: () => {
+          return "yes he is sleeping";
+        },
+      };
+      for (let key in obj1) {
+        console.log(`${key}:${obj1[key]}`);
+      }
+
+      console.log(Object.keys(obj1));
+      const keys = Object.keys(obj1);
+      for (let key of keys) {
+        console.log(`${key}: ${obj1[keys]}`);
+      }
+    </script>
+  </body>
+</html>
