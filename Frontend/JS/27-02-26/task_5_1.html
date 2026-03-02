@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloning Array</title>
+  </head>
+  <body>
+    <h1>Cloning an Array</h1>
+
+    <script>
+      const arr = ["item1", "item2", "item3", "item4"];
+
+      // ===============================
+      // 1️⃣ Normal Assignment (Not Cloning ❌)
+      // ===============================
+      const arr2 = arr;
+      arr2.push("item5");
+
+      console.log("Original Array:", arr);
+      console.log("Assigned Array:", arr2);
+
+      // ===============================
+      // 2️⃣ Using Spread Operator ✅
+      // ===============================
+      const arr3 = [...arr];
+      arr3.push("item6");
+
+      console.log("Original Array:", arr);
+      console.log("Cloned using Spread:", arr3);
+
+      // ===============================
+      // 3️⃣ Using slice() ✅
+      // ===============================
+      const arr4 = arr.slice();
+      arr4.push("item7");
+
+      console.log("Original Array:", arr);
+      console.log("Cloned using slice():", arr4);
+
+      // ===============================
+      // 4️⃣ Using concat() ✅
+      // ===============================
+      const arr5 = [].concat(arr);
+      arr5.push("item8");
+
+      console.log("Original Array:", arr);
+      console.log("Cloned using concat():", arr5);
+    </script>
+  </body>
+</html>

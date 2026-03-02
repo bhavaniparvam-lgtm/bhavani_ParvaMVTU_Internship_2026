@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Selecting Elements in JS</h1>
+    <p>1. getElementById</p>
+    <p>2. getElementsByClassName</p>
+    <p>3. getElementsByTagName</p>
+    <p>4. querySelector</p>
+    <p>5. querySelectorAll</p>
+    <!-- id -->
+    <p id="p_tag1">Lorem, ipsum dolor.</p>
+
+    <!-- class -->
+    <p class="p_tag">Lorem, ipsum dolor.</p>
+    <p class="p_tag">Lorem, ipsum dolor.</p>
+
+    <!--queryselector  -->
+    <p id="p_tag2">Lorem, ipsum.</p>
+
+    <!-- queryselectorall -->
+    <p id="p_tag3">Lorem, ipsum dolor.</p>
+    <p id="p_tag3">Lorem, ipsum dolor.</p>
+
+    <script>
+      document.getElementById("p_tag1").style.color = "red";
+
+      const classes = document.getElementsByClassName("p_tag");
+      classes[0].style.color = "green";
+      console.log(classes);
+
+      const tags = document.getElementsByTagName("p");
+      tags[2].style.color = "blue";
+      console.log(tags);
+
+      //query selector
+      document.querySelector("#p_tag2").style.backgroundColor = "yellow";
+
+      const query_classes = document.querySelectorAll(".p_tag3");
+      console.log(query_classes);
+    </script>
+  </body>
+</html>

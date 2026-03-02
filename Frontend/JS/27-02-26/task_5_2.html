@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Destructuring</title>
+  </head>
+  <body>
+    <h1>object destructuring</h1>
+
+    <script>
+      const obj = {
+        item1: "Pen",
+        item2: "Pencil",
+        item3: "Eraser",
+        item4: "Sharpener",
+        item5: "Scale",
+      };
+
+      // ===============================
+      // 1️⃣ Without Destructuring
+      // ===============================
+      const var1 = obj.item1;
+      const var2 = obj.item2;
+      const var3 = obj.item3;
+      const var4 = obj.item4;
+      const var5 = obj.item5;
+
+      console.log(var1, var2, var3, var4, var5);
+
+      // ===============================
+      // 2️⃣ Basic Object Destructuring
+      // ===============================
+      const { item1, item2, item3, ...item4 } = obj;
+
+      console.log(item1, item2, item3);
+      console.log(item4);
+
+      // ===============================
+      // 3️⃣ Renaming Variables
+      // ===============================
+      const { item1: first, item3: third, item5: fifth } = obj;
+
+      console.log(first, third, fifth);
+    </script>
+  </body>
+</html>
