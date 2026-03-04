@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      #container {
+        width: 100px;
+        height: 50px;
+        border: 2px solid black;
+        background-color: yellow;
+        position: absolute;
+      }
+    </style>
+    <title>Keyboard Events</title>
+  </head>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      const container = document.getElementById("container");
+      let x = 0;
+      let y = 0;
+
+      // KEYDOWN → when key is pressed
+      document.addEventListener("keydown", (event) => {
+        console.log("Key Down:", event.key);
+        console.log("Key Code:", event.code);
+
+        if (event.key === "ArrowUp") {
+          y -= 10;
+        } else if (event.key === "ArrowDown") {
+          y += 10;
+        } else if (event.key === "ArrowLeft") {
+          x -= 10;
+        } else if (event.key === "ArrowRight") {
+          x += 10;
+        }
+
+        // Detect Enter key
+        if (event.key === "Enter") {
+          alert("You Pressed Enter");
+        }
+
+        // Detect Shift + A
+        if (event.shiftKey && event.key === "A") {
+          alert("Shift + A Pressed");
+        }
+
+        // Prevent space from scrolling page
+        if (event.key === " ") {
+          event.preventDefault();
+          console.log("Space Pressed (Default Prevented)");
+        }
+
+        container.style.top = y + "px";
+        container.style.left = x + "px";
+      });
+
+      // KEYUP → when key is released
+      document.addEventListener("keyup", (event) => {
+        console.log("Key Released:", event.key);
+      });
+
+      // KEYPRESS → when character key is pressed
+      document.addEventListener("keypress", (event) => {
+        console.log("Key Press (Character):", event.key);
+      });
+    </script>
+  </body>
+</html>
