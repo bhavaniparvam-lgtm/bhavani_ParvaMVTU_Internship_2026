@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        /* changing the position in X-axis and y axis respectively */
+        /* transform: translateX(50px) translateY(200px);
+        transform: translate(200px, 200px); */
+        /* changing the scale(width and height) */
+        /* transform: scaleX(1.5) scaleY(0.5); */
+        /* transform: scale(1.5, 0.5); */
+        /* transform: translate(100px, 300px) scale(1.5, 0.5); */
+        /* Changing the angle of element */
+        /* rotateX rotateY rotateZ */
+        /* rotate(angle) rotate
+        (a,a,a) */
+        /* transform: rotateX(45deg) rotateY(45deg) rotateZ(45deg); */
+        /* transform: rotate(25deg, 35deg, 25deg); */
+        /* x,y,z,a deg */
+        /* transform: rotate3d(1, 2, 3, 4deg); */
+        /*skewing the element meaning The skew() function in CSS is used within the transform property to distort an element along its x-axis, y-axis, or both, creating a shearing effect on the 2D plane. This transformation shifts each point of the element proportionally to its distance from the origin, making it appear slanted. */
+        /* transform: skewX(2deg) skewY(2deg); */
+        /* transform: perspective(500px) rotateY(45deg); */
+        /* perspective meaning  */
+        /* everything together */
+        transform: perspective(500px) rotateY(45deg) translate(100px, 300px)
+          scale(1.5, 0.5) skewX(2deg) skewY(2deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .click-btn {
+        background-color: lightblue;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+      }
+      .click-btn:hover {
+        background-color: lightgreen;
+        color: black;
+      }
+      .link {
+        color: blue;
+        text-decoration: none;
+        font-size: 20px;
+      }
+      .link:hover {
+        color: rgb(147, 41, 41);
+        text-decoration: underline;
+        font-size: 22px;
+      }
+      /* it is used to see on hover */
+      h1:hover {
+        color: red;
+      }
+      /* already opened links */
+      a:visited {
+        color: rgb(168, 150, 168);
+      }
+      /* link will apply the styles for unopened links or new links */
+      a:link {
+        color: blue;
+      }
+      /* the link which is currently being clicked */
+      a:active {
+        color: green;
+      }
+      /* targets first child */
+      div h1:first-child {
+        color: rgb(106, 9, 78);
+      }
+      /* targets last child */
+      div p:last-child {
+        color: rgb(92, 182, 40);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My Pseudo-Classes Example</h1>
+    <h2>this is a heading</h2>
+    <h2>this is another heading</h2>
+    <div>
+      <h1>heading1 within div</h1>
+      <p>This is a paragraph inside a div.</p>
+      <p>This is another paragraph inside the same div.</p>
+    </div>
+    <button class="click-btn">click me</button>
+    <a class="link" href="https://parvamconsultech.com" target="_blank"
+      >ParvaM</a
+    >
+    <a href="https://whatsapp.com" target="_blank">Whatsapp</a>
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+  </body>
+</html>

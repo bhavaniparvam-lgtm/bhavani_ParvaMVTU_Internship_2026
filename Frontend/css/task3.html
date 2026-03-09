@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RRCE College Website</title>
+
+    <style>
+      @font-face {
+        font-family: "Roboto-font";
+        src: url("../../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf");
+      }
+      @font-face {
+        font-family: "Playwrite-Cursive";
+        src: url("../../fonts/Playwrite_NZ_Basic/PlaywriteNZBasic-VariableFont_wght.ttf");
+      }
+      @font-face {
+        font-family: "Playwrite-NZ";
+        src: url("../../fonts/Playwrite_IN_Guides/PlaywriteINGuides-Regular.ttf");
+      }
+
+      body {
+        background-color: rgb(146, 168, 175);
+        color: rgb(143, 123, 115);
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        text-align: center;
+        font-size: 45px;
+        font-weight: bolder;
+        padding: 50px 50px 50px;
+        margin: 30px;
+      }
+
+      h1 {
+        font-size: 40px;
+        color: white;
+        font-weight: bolder;
+        padding: 50px 50px 50px;
+        font-family: "Roboto-font";
+        margin: 30px;
+      }
+      nav {
+        background-color: rgb(138, 176, 207);
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 30px;
+        background-color: #f7efe8;
+        color: orangered;
+        font-family: "Playwrite-Cursive";
+      }
+
+      h3 {
+        color: brown;
+        background-color: burlywood;
+        font-size: 20px;
+        padding: 20px;
+        margin: 20px 40px 50px;
+        font-family: "Playwrite-Cursive";
+      }
+      .p1 {
+        text-align: center;
+        font-weight: 600;
+        text-decoration: underline;
+        font-family: "Roboto-font";
+        line-height: 45px;
+      }
+
+      p {
+        background-color: #f7efe8;
+        padding: 15px;
+        margin: 15px 0;
+        line-height: 1.6;
+        text-align: justify;
+      }
+
+      a {
+        color: teal;
+        text-decoration: none;
+        font-weight: bold;
+        text-decoration: underline;
+        color: rgb(122, 122, 171);
+        cursor: grab;
+      }
+
+      header {
+        background-color: rgb(199, 199, 144);
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 2px solid rgb(115, 79, 79);
+      }
+      .intro {
+        background-color: rgb(158, 135, 179);
+        border: 2px solid rgb(100, 70, 70);
+      }
+      .about {
+        background-color: rgb(153, 127, 178);
+        border: 2px solid rgb(150, 101, 101);
+      }
+      .list {
+        color: whitesmoke;
+      }
+
+      img {
+        max-width: 100%;
+      }
+      .dept {
+        background-color: rgb(128, 164, 182);
+      }
+      .lit {
+        color: whitesmoke;
+      }
+      .faculty {
+        background-color: #ffd9b3;
+        border: 2px solid rgb(222, 125, 125);
+      }
+      .admission {
+        background-color: rgb(163, 112, 211);
+        border: 2px solid rgb(99, 80, 80);
+      }
+      .gallery {
+        background-color: rgb(142, 192, 192);
+      }
+      .p4 {
+        background-color: rgb(145, 114, 92);
+      }
+      section {
+        background-color: white;
+        padding: 25px;
+        margin: 30px 0;
+        border: 2px solid #e0cfc1;
+      }
+
+      ul {
+        margin-left: 30px;
+        line-height: 1.8;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th {
+        background-color: lightblue;
+        padding: 10px;
+      }
+
+      td {
+        padding: 10px;
+        text-align: center;
+      }
+
+      form {
+        background-color: lightgoldenrodyellow;
+        padding: 20px;
+        border: 2px solid #d8c2b2;
+      }
+
+      input,
+      select,
+      textarea {
+        padding: 8px;
+        margin-top: 5px;
+        width: 100%;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        width: auto;
+        padding: 10px 20px;
+        margin-top: 15px;
+        cursor: pointer;
+      }
+
+      figure {
+        text-align: center;
+        margin: 20px;
+      }
+
+      figcaption {
+        margin-top: 5px;
+        font-weight: bold;
+      }
+
+      video,
+      audio {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      footer {
+        background-color: #3b2f2f;
+        color: #ffd9b3;
+        padding: 30px;
+        margin-top: 40px;
+      }
+
+      footer a {
+        color: #ffd9b3;
+      }
+
+      .social-media a {
+        margin-right: 15px;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <figure>
+          <img src="../../media/logo.png" height="150" alt="logo" />
+        </figure>
+
+        <h1>College of Engineering</h1>
+        <p class="p1">
+          Welcome to College of Engineering, where quality education,
+          innovation, and excellence come together to shape successful future
+          engineers.
+        </p>
+      </nav>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h2>Introduction</h2>
+        <p>
+          College of Engineering, established in 2006, is a premier institution
+          committed to excellence in technical education.
+        </p>
+
+        <h3>Vision</h3>
+        <p>
+          To empower young minds through technology, research, and innovation.
+        </p>
+
+        <h3>Mission</h3>
+        <p>
+          To provide holistic education through technology, research, and skill
+          development.
+        </p>
+      </section>
+
+      <section class="about">
+        <h2>About the College</h2>
+        <p><b>Year of Establishment:</b> 2006</p>
+
+        <p>
+          RRCE is affiliated with VTU, Belagavi and approved by AICTE, offering
+          UG, PG and research programs.
+        </p>
+
+        <h3>Achievements</h3>
+        <ul class="list">
+          <li>NAAC Accredited</li>
+          <li>University Rank Holders</li>
+          <li>Excellent Placement Records</li>
+        </ul>
+      </section>
+
+      <section class="dept">
+        <h2>Departments</h2>
+        <ul class="lit">
+          <li>Computer Science and Engineering</li>
+          <li>CSE (IoT)</li>
+          <li>Information Science</li>
+          <li>Electronics & Communication</li>
+          <li>Electrical & Electronics</li>
+        </ul>
+      </section>
+
+      <section class="faculty">
+        <h2>Faculty Details</h2>
+
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Experience</th>
+          </tr>
+          <tr>
+            <td>Dr. Shashidar</td>
+            <td>CSE</td>
+            <td>HOD & Professor</td>
+            <td>15 Years</td>
+          </tr>
+          <tr>
+            <td>Ms. Yamunashree</td>
+            <td>ECE</td>
+            <td>Assistant Professor</td>
+            <td>8 Years</td>
+          </tr>
+          <tr>
+            <td>Mr.Manohar</td>
+            <td>Electrical</td>
+            <td>Professor</td>
+            <td>2 Years</td>
+          </tr>
+          <tr>
+            <td>Ms.Renukha</td>
+            <td>CyberSecurity</td>
+            <td>Assistant Professor</td>
+            <td>4 Years</td>
+          </tr>
+        </table>
+      </section>
+
+      <section class="admission">
+        <h2>Admission Enquiry</h2>
+
+        <form>
+          Student Name:
+          <input type="text" placeholder="Enter student name" />
+
+          Email:
+          <input type="email" placeholder="Enter email" />
+
+          Phone:
+          <input type="text" placeholder="Enter phone number" />
+
+          Skills:
+          <textarea rows="4"></textarea>
+
+          <input type="submit" />
+          <input type="reset" />
+        </form>
+      </section>
+
+      <section class="gallery">
+        <h2><u>Gallery</u></h2>
+        <div class="gallery">
+          <div class="campus-1">
+            <figure>
+              <img
+                src="C:\Users\Sagar\OneDrive\Documents\Parvam internship 2026\media\campus1.jpg"
+                alt="campus"
+              />
+              <figcaption>College Campus</figcaption>
+            </figure>
+          </div>
+
+          <div class="campus-2">
+            <figure>
+              <img
+                src="C:\Users\Sagar\OneDrive\Documents\Parvam internship 2026\media\campus2.jpg"
+                alt="Library Building"
+              />
+              <figcaption>Library</figcaption>
+            </figure>
+          </div>
+
+          <div class="video">
+            <h3>Promotional Video</h3>
+            <video
+              controls
+              src="C:\Users\Sagar\OneDrive\Documents\Parvam internship 2026\media\campus_video.mp4"
+            ></video>
+          </div>
+
+          <div class="audio">
+            <h3>Audio</h3>
+            <audio
+              controls
+              src="C:\Users\Sagar\OneDrive\Documents\Parvam internship 2026\media\hirasepix-animal-jam-356271.mp3"
+            ></audio>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="message">
+          <figure>
+            <img
+              src="C:\Users\Sagar\OneDrive\Documents\Parvam internship 2026\media\logo.png"
+              height="100px"
+              alt="logo"
+            />
+            <figcaption>
+              The institution is managed by the Moogambigai Charitable &
+              Educational Trust, which has its administrative office located at
+              #06, 1st Floor, Appa Reddy Complex, 5th Cross, Mysore Road, New
+              Guddadahalli, Bangalore-560026.
+            </figcaption>
+          </figure>
+
+          <div class="social-media">
+            <a href="https://facebook.com">
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://instagram.com">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://whatsapp.com">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://x.com">
+              <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://youtube.com">
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div class="quick-links">
+          <ul>
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Facilities</li>
+            <li>Campus</li>
+            <li>Contact Us</li>
+          </ul>
+        </div>
+        <div class="reach-us">
+          <h1>College Address</h1>
+          <h3>Adress:</h3>
+          <p class="p4">
+            #14, Ramohalli Cross, Kumbalgodu, Mysore Road, Bengaluru - 560074,
+            Karnataka, India.
+          </p>
+
+          <div class="contact">
+            <h1>Contact Us</h1>
+            <a href="tel:+91-80-2843 7124 / 2843 7375"
+              >+91-80-2843 7124 / 2843 7375</a
+            >
+          </div>
+          <div class="email">
+            <h1>Email Us</h1>
+            <a href="mailto:enquiry@rrce.org, principal@rrce.org"
+              >enquiry@rrce.org, principal@rrce.org</a
+            >
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script
+      src="https://kit.fontawesome.com/eeb7f85c10.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,75 @@
+<!-- css cascading style sheets -->
+<!-- purpose styling -->
+<!-- css can be added in three ways -->
+<!-- 1) inline css -->
+<!-- 2) internal css -->
+<!-- 3) external css -->
+<!-- 1) inline css write in a header tag of html file -->
+<!-- 2) internal css write in a style tag in head section of html file -->
+<!-- 3) external css write in a separate file with .css extension and link it in head section of html file -->
+<!-- css syntax -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- internal css -->
+    <style>
+      /* selector {
+                property: value;
+            } */
+      body {
+        background-color: rgb(232, 231, 213);
+      }
+    </style>
+    <!-- types of selectors -->
+    <!-- id selector has highest specificity -->
+    <style>
+      /* element selector all html tags:p h table body */
+      h1 {
+        font-family: Arial, sans-serif;
+      }
+      /* class selector  user defined keywoeds it can be repeated */
+      .highlight {
+        background-color: yellow;
+      }
+      /* id selector it should be unique */
+      #unique {
+        font-weight: bold;
+      }
+    </style>
+    <!-- box model -->
+    <style>
+      .box {
+        width: 200px;
+        height: 100px;
+        background-color: lightblue;
+        border: 2px solid black;
+        padding: 20px;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- internal css -->
+    <h1 style="color: red">This is a heading</h1>
+    <p style="color: green">This is a paragraph</p>
+    <a href="#" style="color: blue">This is a link</a>
+    <!-- rgb method -->
+    <!-- 0 to 255 where 0,0,0 gives black and 255,255,255 gives white -->
+    <h2 style="color: rgb(255, 0, 0)">This is a heading</h2>
+    <p style="color: rgb(0, 255, 0)">This is a paragraph</p>
+    <a href="#" style="color: rgb(0, 0, 255)">This is a link</a>
+    <!-- hex method -->
+    <!-- #RRGGBB where RR is red, GG is green and BB is blue-->
+    <h2 class="highlight">This is a heading</h2>
+    <p class="highlight">This is a paragraph</p>
+    <a href="#" class="highlight">This is a link</a>
+    <!-- rgba -->
+    <!-- rgba(R, G, B, A) where R is red, G is green, B is blue and A is alpha (opacity) -->
+    <h2 id="unique" style="color: rgba(255, 0, 0, 0.5)">This is a heading</h2>
+    <p style="color: rgba(0, 255, 0, 0.5)">This is a paragraph</p>
+    <a href="#" style="color: rgba(0, 0, 255, 0.5)">This is a link</a>
+  </body>
+</html>

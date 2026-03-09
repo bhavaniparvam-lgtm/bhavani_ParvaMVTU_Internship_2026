@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Position Properties - Elegant Demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          "Segoe UI",
+          -apple-system,
+          sans-serif;
+        background: linear-gradient(
+          135deg,
+          #0f0f23 0%,
+          #1a1a2e 50%,
+          #16213e 100%
+        );
+        color: #e0e7ff;
+        min-height: 200vh;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 1rem 2rem;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      .title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        background: linear-gradient(135deg, #60a5fa, #a78bfa, #34d399);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .demo-grid {
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 3rem;
+        margin: 2rem 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      }
+
+      /* STATIC - Elegant default flow */
+      .static {
+        position: static;
+        background: linear-gradient(135deg, #10b981, #059669);
+        height: 80px;
+        margin: 1.5rem 0;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+        box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      /* RELATIVE - Subtle offset */
+      .relative {
+        position: relative;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        height: 80px;
+        margin: 1.5rem 0;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+        left: 3rem;
+        top: 1rem;
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        transform: translateZ(0);
+      }
+
+      /* ABSOLUTE - Perfect container positioning */
+      .absolute {
+        position: absolute;
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+        width: 160px;
+        height: 60px;
+        top: 1.5rem;
+        right: 2rem;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 0.95rem;
+        box-shadow: 0 10px 30px rgba(245, 158, 11, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* STICKY - Smooth scroll behavior */
+      .sticky {
+        position: sticky;
+        top: 6rem;
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        height: 60px;
+        margin: 2rem 0 1.5rem;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 1.1rem;
+        box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .scroll-area {
+        height: 600px;
+        background: linear-gradient(45deg, #64748b, #475569);
+        margin: 3rem 0;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        font-weight: 500;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .scroll-area::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.5),
+          transparent
+        );
+      }
+
+      .legend {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+        padding: 2rem;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .legend-card {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .position-label {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #60a5fa, #a78bfa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+        .absolute {
+          right: 1rem;
+          width: 140px;
+        }
+        .relative {
+          left: 2rem;
+        }
+      }
+
+      /* Hover effects */
+      .static:hover,
+      .relative:hover,
+      .sticky:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">🎨 CSS Position Properties - Live Elegant Demo</div>
+
+    <div class="container">
+      <h1 class="title">CSS Position Properties</h1>
+      <p
+        style="
+          text-align: center;
+          max-width: 600px;
+          margin: 0 auto 3rem;
+          opacity: 0.9;
+        "
+      >
+        Scroll to experience <strong>fixed</strong> header,
+        <strong>sticky</strong> behavior, and see all positioning types in
+        action
+      </p>
+
+      <div class="demo-grid">
+        <!-- STICKY Element -->
+        <div class="sticky">🟣 STICKY - Sticks after scroll threshold</div>
+
+        <!-- STATIC Element -->
+        <div class="static">🟩 STATIC - Normal document flow</div>
+
+        <!-- RELATIVE Element -->
+        <div class="relative">🟦 RELATIVE - Offset from normal position</div>
+
+        <!-- ABSOLUTE Element (relative to .demo-grid) -->
+        <div class="absolute">🟧 ABSOLUTE - Container positioned</div>
+      </div>
+
+      <!-- Scroll demonstration area -->
+      <div class="scroll-area">
+        <div>📜 Scroll up/down to see:</div>
+        <div style="margin-top: 1rem; opacity: 0.8">
+          • Fixed header (top bar)<br />
+          • Sticky element behavior
+        </div>
+      </div>
+    </div>
+
+    <!-- Elegant Legend -->
+    <div class="legend">
+      <div class="legend-card">
+        <div class="position-label">📋 Position Types</div>
+        <strong>Static:</strong> Default flow, no offsets work<br />
+        <strong>Relative:</strong> Offset from normal position<br />
+        <strong>Absolute:</strong> No flow, ancestor positioned<br />
+        <strong>Fixed:</strong> Viewport positioned (header)<br />
+        <strong>Sticky:</strong> Scroll threshold behavior
+      </div>
+
+      <div class="legend-card">
+        <div class="position-label">🔧 Key Properties</div>
+        <strong>Offsets:</strong> top, right, bottom, left<br />
+        <strong>Stacking:</strong> z-index (higher = top)<br />
+        <strong>Works with:</strong> All except static
+      </div>
+    </div>
+  </body>
+</html>

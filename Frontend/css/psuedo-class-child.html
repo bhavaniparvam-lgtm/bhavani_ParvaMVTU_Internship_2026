@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li:first-child {
+        color: red;
+      }
+      li:last-child {
+        color: green;
+      }
+      li:nth-child(3) {
+        color: blue;
+      }
+      /* even child */
+      li:nth-child(2n) {
+        color: orange;
+      }
+      /* odd child */
+      li:nth-child(2n + 1) {
+        color: purple;
+      }
+      li:nth-child(4n) {
+        color: brown;
+      }
+      /* :: psuedo-element
+      :psuedo-class */
+      h1::first-letter {
+        color: pink;
+        font-size: 40px;
+      }
+      div {
+        background-color: lightgray;
+        padding: 20px;
+      }
+      /* The :first-child selector targets an element that is the very first child of its parent, while :first-of-type targets the first occurrence of a specified element type within its parent.  */
+      h1:first-of-type {
+        color: cyan;
+        background-color: black;
+      }
+      h2:last-of-type {
+        color: magenta;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>My List</h1>
+    <ul>
+      <li>First item</li>
+      <li>Second item</li>
+      <li>Third item</li>
+      <li>Fourth item</li>
+      <li>Fifth item</li>
+      <li>Sixth item</li>
+      <li>Seventh item</li>
+      <li>Eighth item</li>
+      <li>Ninth item</li>
+      <li>Tenth item</li>
+    </ul>
+    <div>
+      <h2>heazding 2 at first</h2>
+      <h1>heading within the div</h1>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, quas.
+      </p>
+      <h2>heading 2 at middle</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id tempora
+        autem optio! Repellat tenetur nulla est laboriosam, labore beatae vero!
+      </p>
+      <h2>heading 2 at last</h2>
+    </div>
+  </body>
+</html>

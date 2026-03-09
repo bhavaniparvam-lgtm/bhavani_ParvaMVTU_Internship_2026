@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .big-box {
+        display: flex;
+        /* horizontal plane or x-axis: justify-content */
+        /* start center end space around between evenly */
+        justify-content: center;
+        /* vertical plane or y-axis: align-items */
+        /* start center end */
+        align-items: center;
+        gap: 10px;
+        background-color: lightgray;
+        height: 1000px;
+        width: 1000px;
+        flex-direction: row;
+        /* row(default) row-reverse column column-reverse */
+        flex-wrap: wrap;
+        align-content: space-around;
+        /* align-content: start end center space-between space-around stretch */
+        /* align-content works only when there are multiple lines of flex items and flex-wrap is set to wrap */
+        /* difference between align-item and align-content */
+      }
+      .box1,
+      .box2,
+      .box3,
+      .box4,
+      .box5,
+      .box6,
+      .box7,
+      .box8,
+      .box9 {
+        width: 20px;
+        height: auto;
+        background-color: lightblue;
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="big-box">
+      <!-- inplace these boxes add images -->
+      <div class="box1">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box2">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box3">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box4">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box5">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box6">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box7">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box8">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+      <div class="box9">
+        <img src="../html/v/image.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

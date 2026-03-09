@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      span {
+        display: block;
+        width: 100%;
+        background-color: rgb(142, 192, 192);
+        padding: 10px;
+        height: 50px;
+      }
+      div {
+        display: inline;
+        width: 100%;
+        /*inline property prevents setting width and height */
+        background-color: rgb(142, 192, 192);
+        padding: 10px;
+        height: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>html element types</h1>
+    <p>
+      1. block level elements takes full width of the container and starts on a
+      new line ex: div, p, h1-h6
+    </p>
+    <p>
+      2. inline elements only takes the width of their content and do not start
+      on a new line ex: span, a, img, strong, em
+    </p>
+    <p>
+      1.display property in CSS controls how an element is displayed on a
+      webpage.
+    </p>
+    <pre>
+        selectors {
+            display: value;
+        }
+    </pre>
+    <h3>
+      display : block - makes the element a block-level element, taking up the
+      full width of its container and starting on a new line.
+    </h3>
+    <span> hello world </span>
+    <span> welcome to parvam internship </span>
+    <h3>
+      display : inline - makes the element an inline element, allowing it to
+      flow within the text and only take up as much width as necessary.
+    </h3>
+    <div>hello world</div>
+    <div>welcome to parvam internship</div>
+  </body>
+</html>

@@ -28,6 +28,7 @@
     <!-- table is a root element for tables -->
     <!-- table is built using row perspective -->
     <!-- table - outer tag -->
+    <!-- for merging rows and columns we'll use rowspan and colspan -->
     <table>
       <!-- tr is a row element -->
       <tr>
@@ -58,36 +59,72 @@
         <th>serial no.</th>
         <th>name</th>
         <th>age</th>
-        <th>city</th>
-        <th>country</th>
+        <th colspan="2">city and country</th>
+        <!-- <th>country</th> -->
       </tr>
       <tr>
         <td>1</td>
         <td>John</td>
         <td>25</td>
         <td>New York</td>
-        <td>USA</td>
+        <td>INDIA</td>
       </tr>
       <tr>
         <td>2</td>
         <td>Jane</td>
         <td>30</td>
         <td>Los Angeles</td>
-        <td>USA</td>
+        <td rowspan="3">USA</td>
       </tr>
       <tr>
         <td>3</td>
         <td>Bob</td>
         <td>35</td>
-        <td>Chicago</td>
-        <td>USA</td>
+        <td rowspan="2">Houston</td>
+        <!-- <td>USA</td> -->
       </tr>
       <tr>
         <td>4</td>
         <td>Alice</td>
         <td>28</td>
-        <td>Houston</td>
-        <td>USA</td>
+        <!-- <td>Houston</td> -->
+        <!-- <td>USA</td> -->
+      </tr>
+    </table>
+    <!-- creating a cricket scoreboard -->
+    <h1>Cricket scoreboard</h1>
+    <table>
+      <tr>
+        <th>Player name</th>
+        <th>Runs</th>
+        <th>Balls</th>
+        <th>4s</th>
+        <th>6s</th>
+        <th>Strike rate</th>
+      </tr>
+      <tr>
+        <th>VK</th>
+        <th>58</th>
+        <th>36</th>
+        <th>3</th>
+        <th>5</th>
+        <th>153</th>
+      </tr>
+      <tr>
+        <th>RG</th>
+        <th>34</th>
+        <th>26</th>
+        <th>2</th>
+        <th>3</th>
+        <th>135</th>
+      </tr>
+      <tr>
+        <th>RS</th>
+        <th>65</th>
+        <th>42</th>
+        <th>4</th>
+        <th>6</th>
+        <th>143</th>
       </tr>
     </table>
   </body>

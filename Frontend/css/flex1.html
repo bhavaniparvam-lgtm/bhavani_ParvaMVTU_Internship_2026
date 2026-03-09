@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .big-box {
+        display: flex;
+        /* horizontal plane or x-axis: justify-content */
+        /* start center end space around between evenly */
+        justify-content: start;
+        /* vertical plane or y-axis: align-items */
+        /* start center end */
+        align-items: flex-start;
+        gap: 10px;
+        background-color: lightgray;
+        height: 500px;
+        flex-direction: row;
+        /* row(default) row-reverse column column-reverse */
+        flex-wrap: wrap;
+        align-content: flex-start;
+        /* align-content: start end center space-between space-around stretch */
+        /* align-content works only when there are multiple lines of flex items and flex-wrap is set to wrap */
+        /* difference between align-item and align-content */
+      }
+      .box1,
+      .box2,
+      .box3,
+      .box4,
+      .box5,
+      .box6,
+      .box7,
+      .box8,
+      .box9,
+      .box10,
+      .box11,
+      .box12,
+      .box13,
+      .box14,
+      .box15 {
+        /* width: 100px; */
+        height: 100px;
+        background-color: lightblue;
+        /* display: flex; */
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-align: center;
+      }
+      .box2 {
+        background-color: lightcoral;
+      }
+      .box3 {
+        background-color: lightgreen;
+      }
+      .box4 {
+        background-color: lightyellow;
+      }
+      .box5 {
+        background-color: rgb(200, 100, 170);
+      }
+      .box6 {
+        width: 100px;
+        height: 100px;
+        background-color: lightseagreen;
+      }
+      .box7 {
+        width: 100px;
+        height: 100px;
+        background-color: lightsalmon;
+      }
+      .box8 {
+        width: 100px;
+        height: 100px;
+        background-color: lightcyan;
+      }
+      .box9 {
+        width: 100px;
+        height: 100px;
+        background-color: lightgoldenrodyellow;
+      }
+      .box10 {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(242, 231, 231);
+      }
+      .box11 {
+        width: 100px;
+        height: 100px;
+        background-color: rgb(200, 100, 170);
+      }
+      .box12 {
+        width: 100px;
+        height: 100px;
+        background-color: lightseagreen;
+      }
+      .box13 {
+        width: 100px;
+        height: 100px;
+        background-color: lightsalmon;
+      }
+      .box14 {
+        width: 100px;
+        height: 100px;
+        background-color: lightcyan;
+      }
+      .box15 {
+        width: 100px;
+        height: 100px;
+        background-color: lightgoldenrodyellow;
+      }
+      .box1 {
+        flex-grow: 1.5;
+        /* flex-grow controls how much a flex item grows relative to other flex items */
+      }
+      .box2 {
+        flex-grow: 2;
+      }
+      .box3 {
+        flex-shrink: 1;
+        /* flex-shrink controls how much a flex item shrinks relative to other flex items */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="big-box">
+      <div class="box1">Box 1</div>
+      <div class="box2">Box 2</div>
+      <div class="box3">Box 3</div>
+      <div class="box4">Box 4</div>
+      <div class="box5">Box 5</div>
+      <!-- <div class="box6">Box 6</div>
+      <div class="box7">Box 7</div>
+      <div class="box8">Box 8</div>
+      <div class="box9">Box 9</div>
+      <div class="box10">Box 10</div>
+      <div class="box11">Box 11</div>
+      <div class="box12">Box 12</div>
+      <div class="box13">Box 13</div>
+      <div class="box14">Box 14</div>
+      <div class="box15">Box 15</div> -->
+    </div>
+  </body>
+</html>
+.box2 { background-color: lightcoral; } .box3 { background-color: lightgreen; }
+.box4 { background-color: lightyellow; } .box5 { background-color: rgb(200, 100,
+170); } .box6 { width: 100px; height: 100px; background-color: lightseagreen; }
+.box7 { width: 100px; height: 100px; background-color: lightsalmon; } .box8 {
+width: 100px; height: 100px; background-color: lightcyan; } .box9 { width:
+100px; height: 100px; background-color: lightgoldenrodyellow; } .box10 { width:
+100px; height: 100px; background-color: rgb(242, 231, 231); } .box11 { width:
+100px; height: 100px; background-color: rgb(200, 100, 170); } .box12 { width:
+100px; height: 100px; background-color: lightseagreen; } .box13 { width: 100px;
+height: 100px; background-color: lightsalmon; } .box14 { width: 100px; height:
+100px; background-color: lightcyan; } .box15 { width: 100px; height: 100px;
+background-color: lightgoldenrodyellow; }

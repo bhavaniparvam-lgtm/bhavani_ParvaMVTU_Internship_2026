@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #static {
+        position: static;
+        background-color: rgb(142, 192, 192);
+        padding: 10px;
+        height: 50px;
+        top: 20px;
+        left: 20px;
+        /* top right left bottom cannot be specified for static position */
+      }
+      #relative {
+        position: relative;
+        background-color: rgb(142, 192, 192);
+        border: 1px solid black;
+        padding: 10px;
+        height: 50px;
+        top: 20px;
+        left: 20px;
+      }
+      .container {
+        position: relative;
+        background-color: rgb(142, 192, 192);
+        border: 1px solid black;
+        padding: 10px;
+        margin: 20px;
+        height: 200px;
+        top: 20px;
+        left: 20px;
+      }
+      #child1 {
+        position: absolute;
+        background-color: rgb(192, 142, 192);
+        border: 1px solid black;
+        padding: 10px;
+        height: 50px;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Positioning in CSS</h1>
+    <p>
+      Positioning in CSS refers to how elements are positioned within the
+      document flow.
+    </p>
+    <pre>
+    1. static: This is the default position for all elements. Elements are positioned according to the normal flow of the document.
+    2. relative: Elements are positioned relative to their normal position. You can use the top, right, bottom, and left properties to adjust the position of the element.
+    3. absolute: Elements are positioned relative to the nearest positioned ancestor (an ancestor with a position other than static). If there is no such ancestor, the element is positioned relative to the initial containing block (usually the viewport).
+    4. fixed: Elements are positioned relative to the viewport, which means they stay in the same position even when the page is scrolled. You can use the top, right, bottom, and left properties to adjust the position of the element.
+    5. sticky: Elements are positioned based on the user's scroll position. A sticky element toggles between relative and fixed, depending on the scroll position. It is treated as relative until it crosses a specified threshold, at which point it becomes fixed.
+    </pre>
+    <div id="static">Lorem ipsum dolor sit amet.</div>
+    <div id="relative">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora ut
+      deleniti placeat veniam, a delectus repellendus laboriosam ad fugit
+      quibusdam necessitatibus eveniet assumenda dolores nisi impedit
+      exercitationem eos laborum ipsam!
+    </div>
+    <div class="container">
+      <div id="child1">Lorem, ipsum dolor.</div>
+    </div>
+  </body>
+</html>

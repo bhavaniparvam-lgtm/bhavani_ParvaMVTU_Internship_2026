@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All CSS Position Types Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background: #1e1e1e;
+        color: #fff;
+        height: 200vh; /* Tall page for scroll demo */
+      }
+
+      .container {
+        position: relative;
+        width: 90%;
+        max-width: 1000px;
+        margin: 0 auto;
+        background: #333;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 50px;
+      }
+
+      /* STATIC - Normal flow */
+      .static {
+        position: static;
+        background: #4caf50;
+        height: 60px;
+        margin: 20px 0;
+        line-height: 60px;
+        text-align: center;
+      }
+
+      /* RELATIVE - Offset from normal position */
+      .relative {
+        position: relative;
+        background: #2196f3;
+        height: 60px;
+        margin: 20px 0;
+        line-height: 60px;
+        text-align: center;
+        left: 40px;
+        top: 20px;
+      }
+
+      /* ABSOLUTE - Relative to container */
+      .absolute {
+        position: absolute;
+        background: #ff9800;
+        height: 60px;
+        width: 120px;
+        line-height: 60px;
+        text-align: center;
+        top: 20px;
+        right: 20px;
+      }
+
+      /* FIXED - Stays on viewport */
+      .fixed {
+        position: fixed;
+        background: #f44336;
+        height: 50px;
+        width: 150px;
+        line-height: 50px;
+        text-align: center;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      /* STICKY - Sticks after scroll */
+      .sticky {
+        position: sticky;
+        background: #9c27b0;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        top: 0;
+        margin: 20px 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .scroll-hint {
+        height: 400px;
+        background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        border-radius: 8px;
+      }
+
+      .legend {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 40px;
+        font-size: 14px;
+      }
+
+      .legend div {
+        background: #444;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- FIXED element - Scroll to see it stay -->
+    <div class="fixed">🟥 FIXED (Scroll Me!)</div>
+
+    <div class="container">
+      <h1>🎯 All CSS Position Types Demo</h1>
+      <p>
+        Scroll down to see <strong>sticky</strong> and <strong>fixed</strong> in
+        action!
+      </p>
+
+      <!-- STICKY header -->
+      <div class="sticky">🟣 STICKY Header</div>
+
+      <!-- STATIC element -->
+      <div class="static">🟩 1. STATIC (Default flow)</div>
+
+      <!-- RELATIVE element -->
+      <div class="relative">🟦 2. RELATIVE (Offset 40px right, 20px down)</div>
+
+      <!-- ABSOLUTE element - Positioned relative to container -->
+      <div class="absolute">🟧 3. ABSOLUTE (Top-right corner)</div>
+
+      <div class="scroll-hint">
+        📜 Scroll down to see sticky + fixed behavior!
+      </div>
+
+      <!-- More content for scrolling -->
+      <div
+        style="
+          height: 800px;
+          background: #222;
+          margin: 40px 0;
+          padding: 40px;
+          border-radius: 8px;
+        "
+      >
+        <h3>Long content area for scroll demo</h3>
+        <p>
+          This demonstrates how fixed stays at viewport top-left, and sticky
+          sticks to top after scroll threshold.
+        </p>
+      </div>
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+      <div>
+        <strong>📋 Quick Reference</strong><br />
+        • Static: Normal flow<br />
+        • Relative: Offset from normal<br />
+        • Absolute: No flow, ancestor-based<br />
+        • Fixed: Viewport-based<br />
+        • Sticky: Scroll threshold
+      </div>
+
+      <div>
+        <strong>🔧 Key Properties</strong><br />
+        • top/right/bottom/left<br />
+        • z-index (stacking)<br />
+        • position: [value]
+      </div>
+    </div>
+
+    <script>
+      // Add scroll indicator
+      window.addEventListener("scroll", () => {
+        const scrolled = window.scrollY;
+        console.log(`Scroll position: ${scrolled}px`);
+      });
+    </script>
+  </body>
+</html>

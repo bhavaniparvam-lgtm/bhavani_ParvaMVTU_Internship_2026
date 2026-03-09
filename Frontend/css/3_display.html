@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div_tag {
+        display: inline-block;
+        width: 100%;
+        background-color: rgb(142, 192, 192);
+        padding: 10px;
+        margin: 10px 0;
+        height: 50px;
+      }
+      #hidden-element {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      3.display: inline-block it is similar to inline but allows setting width
+      and height
+    </p>
+    <div class="div_tag">hello</div>
+
+    <div class="div_tag">world</div>
+    <p>
+      4.display: none - hides the element from the webpage. The element will not
+      take up any space on the page and will not be visible to users.
+    </p>
+    <div id="hidden-element">This element is hidden</div>
+  </body>
+</html>
+<!-- dispplay none and visibility hidden difference-->
+<!-- display none removes the element from the document flow, making it as if the element does not exist on the page. It does not take up any space and is not visible to users. -->
+<!-- visibility hidden makes the element invisible, but it still occupies space in the document flow. The element is not visible to users, but it still affects the layout of the page. -->
