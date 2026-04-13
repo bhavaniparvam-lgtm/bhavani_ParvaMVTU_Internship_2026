@@ -1,0 +1,65 @@
+Java:
+====
+* It is a object oriented, high level programming language used to develop 
+1. web applications
+2. android applications
+3. enterprise applications
+4. desktop applications
+
+* file extension - .java
+
+* code (.java) - compile ->  byte code (.class) - jvm ->machine level 
+
+* java is platform independent (WORA - WRITE ONCE RUN ANYWHERE)
+
+*JVM is not platform independent (platform dependent)
+
+* java is a case sensitive language
+
+To write Java code --> IDE(INTEGRATED DEVELOPMENT ENVIRONMENT)
+1. Eclipse
+2. VS Code
+3. IntelliJ IDEA
+
+First program:
+==============
+1. create a project in eclipse (file --> new --> java project)
+2. inside src create new package (src --> right click --> new --> package)
+3. inside package create a new .java file (package --> right click --> new --> class)
+
+JDK(JAVA DEVELOPMENT KIT)
+JRE(JAVA RUNTIME ENVIRONMENT)
+JVM(JAVA VIRTUAL MACHINE)
+JIT(JUST IN TIME)
+
+
+1. Data types: what kind of data can we store in a variable
+===========================================================
+2 types of data types:
+=======================
+1. primitive data types:
+========================
+	1.byte
+	2.short
+	3.int
+	4.long
+	5.float
+	6.double
+	7.char
+	8.boolean
+
+2. non-primitive data types:
+============================
+	1.Arrays
+	2.Strings
+	3.classes
+
+2. variable:
+=============
+* container used to store data
+syntax:
+=======
+data_type var_name = value;
+
+ctrl+shift+f --> format
+ctrl+shift+o --> remove unnecessary
