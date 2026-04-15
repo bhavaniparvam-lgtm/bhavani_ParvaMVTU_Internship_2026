@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">Student Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="form-card">
+        <h1 th:text="${pageTitle}"></h1>
+
+        <form th:action="@{/students/save}" th:object="${student}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" th:field="*{studentName}" placeholder="Enter student name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" th:field="*{email}" placeholder="Enter email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" th:field="*{phone}" placeholder="Enter phone number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" id="department" th:field="*{department}" placeholder="Enter department" required>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Select Course</label>
+                <select id="course" th:field="*{course.id}" required>
+                    <option value="">-- Select Course --</option>
+                    <option th:each="courseItem : ${courses}"
+                            th:value="${courseItem.id}"
+                            th:text="${courseItem.courseName + ' (' + courseItem.courseCode + ')'}">
+                    </option>
+                </select>
+            </div>
+
+            <div class="button-group">
+                <button type="submit" class="btn">Save Student</button>
+                <a th:href="@{/students}" class="btn secondary-btn">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

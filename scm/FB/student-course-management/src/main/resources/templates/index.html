@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Course Management</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <div class="hero-card">
+        <h1>Student & Course Management</h1>
+        <p>A Spring Boot + Thymeleaf + MySQL CRUD application for managing students, courses, and their relationship.</p>
+
+        <div class="button-group">
+            <a th:href="@{/students}" class="btn">Manage Students</a>
+            <a th:href="@{/courses}" class="btn secondary-btn">Manage Courses</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
