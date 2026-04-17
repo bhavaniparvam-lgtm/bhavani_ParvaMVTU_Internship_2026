@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar" class="navbar navbar-expand-lg custom-navbar shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" th:href="@{/}">
+            <span class="brand-badge">OM</span>
+            <span>Order Management</span>
+        </a>
+
+        <div class="d-flex flex-wrap gap-2">
+            <a class="btn nav-btn" th:href="@{/}">Dashboard</a>
+            <a class="btn nav-btn" th:href="@{/customers}">Customers</a>
+            <a class="btn nav-btn" th:href="@{/products}">Products</a>
+            <a class="btn nav-btn" th:href="@{/orders}">Orders</a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

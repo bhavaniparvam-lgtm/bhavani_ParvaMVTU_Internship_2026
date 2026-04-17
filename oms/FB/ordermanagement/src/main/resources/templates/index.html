@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container py-4">
+    <div class="page-header mb-4">
+        <h2 class="page-title">Dashboard</h2>
+        <p class="page-subtitle">Manage customers, products, orders, and stock alerts in one place.</p>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card">
+                <div class="dashboard-label">Customers</div>
+                <div class="dashboard-value" th:text="${customerCount}"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card">
+                <div class="dashboard-label">Products</div>
+                <div class="dashboard-value" th:text="${productCount}"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card">
+                <div class="dashboard-label">Orders</div>
+                <div class="dashboard-value" th:text="${orderCount}"></div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+            <div class="dashboard-card alert-highlight">
+                <div class="dashboard-label">Out of Stock</div>
+                <div class="dashboard-value" th:text="${outOfStockCount}"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-card">
+        <div class="custom-card-header d-flex justify-content-between align-items-center">
+            <span>Out of Stock Alerts</span>
+            <span class="status-pill danger-pill">Check Inventory</span>
+        </div>
+        <div class="custom-card-body">
+            <div th:if="${#lists.isEmpty(outOfStockProducts)}" class="empty-state">
+                No out-of-stock products right now.
+            </div>
+
+            <div th:if="${!#lists.isEmpty(outOfStockProducts)}" class="table-responsive">
+                <table class="table custom-table align-middle mb-0">
+                    <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Current Stock</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product, stat : ${outOfStockProducts}">
+                        <td th:text="${stat.count}"></td>
+                        <td th:text="${product.productName}"></td>
+                        <td th:text="${product.category}"></td>
+                        <td><span class="status-pill danger-pill">Out of Stock</span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
