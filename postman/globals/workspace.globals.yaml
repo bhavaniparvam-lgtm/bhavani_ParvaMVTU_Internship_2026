@@ -1,0 +1,11 @@
+name: Globals
+values:
+  - key: jwtToken
+    value: ''
+    enabled: true
+  - key: token
+    value: ''
+    enabled: true
+  - key: bhavz-token
+    value: ''
+    enabled: true

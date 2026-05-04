@@ -1,0 +1,80 @@
+package com.tsukuyomi.shiori.service;
+
+import com.tsukuyomi.shiori.dto.BookMoodResponseDto;
+import com.tsukuyomi.shiori.entity.Book;
+import com.tsukuyomi.shiori.entity.BookMood;
+import com.tsukuyomi.shiori.entity.MoodTag;
+import com.tsukuyomi.shiori.exception.BookNotFoundException;
+import com.tsukuyomi.shiori.repository.BookMoodRepository;
+import com.tsukuyomi.shiori.repository.BookRepository;
+import com.tsukuyomi.shiori.repository.MoodTagRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+public class BookMoodService {
+
+    private final BookRepository bookRepository;
+    private final MoodTagRepository moodTagRepository;
+    private final BookMoodRepository bookMoodRepository;
+
+    public BookMoodService(BookRepository bookRepository,
+                           MoodTagRepository moodTagRepository,
+                           BookMoodRepository bookMoodRepository) {
+        this.bookRepository = bookRepository;
+        this.moodTagRepository = moodTagRepository;
+        this.bookMoodRepository = bookMoodRepository;
+    }
+
+    @Transactional
+    public List<BookMoodResponseDto> assignMoodToBook(Long bookId, Long moodTagId, Integer intensity, String note) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + bookId));
+
+        MoodTag moodTag = moodTagRepository.findById(moodTagId)
+                .orElseThrow(() -> new IllegalArgumentException("Mood tag not found with id: " + moodTagId));
+
+        BookMood bookMood = bookMoodRepository.findByBookIdAndMoodTagId(book.getId(), moodTag.getId())
+                .orElseGet(() -> {
+                    BookMood newBookMood = new BookMood();
+                    newBookMood.setBook(book);
+                    newBookMood.setMoodTag(moodTag);
+                    return newBookMood;
+                });
+
+        bookMood.setIntensity(intensity);
+        bookMood.setNote(note);
+        bookMoodRepository.save(bookMood);
+
+        return getMoodsByBookId(bookId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<BookMoodResponseDto> getMoodsByBookId(Long bookId) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + bookId));
+
+        return book.getBookMoods()
+                .stream()
+                .map(bookMood -> new BookMoodResponseDto(
+                        bookMood.getId(),
+                        bookMood.getMoodTag().getId(),
+                        bookMood.getMoodTag().getName(),
+                        bookMood.getIntensity(),
+                        bookMood.getNote(),
+                        bookMood.getCreatedAt()
+                ))
+                .toList();
+    }
+
+    @Transactional
+    public void clearMoodsByBookId(Long bookId) {
+        Book book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + bookId));
+
+        List<BookMood> moodsToRemove = List.copyOf(book.getBookMoods());
+        moodsToRemove.forEach(book::removeBookMood);
+    }
+}

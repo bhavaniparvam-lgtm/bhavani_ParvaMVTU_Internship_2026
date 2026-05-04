@@ -1,0 +1,25 @@
+$kind: http-request
+url: http://localhost:8083/api/books
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"The 3 Mistakes of My Life\",\r
+
+    \  \"genre\": \"Fiction\",\r
+
+    \  \"price\": 299.0,\r
+
+    \  \"pages\": 320,\r
+
+    \  \"publishedDate\": \"2008-05-01\",\r
+
+    \  \"available\": true,\r
+
+    \  \"description\": \"A popular novel for library testing.\",\r
+
+    \  \"authorId\": 1\r
+
+    }"
+order: 3928259218553656

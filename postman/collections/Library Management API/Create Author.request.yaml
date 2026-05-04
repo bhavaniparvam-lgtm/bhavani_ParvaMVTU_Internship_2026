@@ -1,0 +1,15 @@
+$kind: http-request
+url: http://localhost:8083/api/authors
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"name\": \"Chetan Bhagat\",\r
+
+    \  \"email\": \"chetan@example.com\",\r
+
+    \  \"specialization\": \"Fiction\"\r
+
+    }"
+order: 2313708567823938

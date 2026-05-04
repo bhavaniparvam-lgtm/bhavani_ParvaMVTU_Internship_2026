@@ -1,0 +1,12 @@
+$kind: http-request
+name: http://localhost:8083/api/books/2/moods
+url: http://localhost:8083/api/books/2/moods
+method: GET
+body:
+  type: json
+  content: ""
+auth:
+  type: bearer
+  credentials:
+    token: "{{token}}"
+order: 1837368748277759

@@ -1,0 +1,21 @@
+package com.tsukuyomi.shiori.repository;
+
+import com.tsukuyomi.shiori.entity.ReadingSession;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface ReadingSessionRepository extends JpaRepository<ReadingSession, Long> {
+
+    List<ReadingSession> findByBookIdOrderBySessionDateDescCreatedAtDesc(Long bookId);
+
+    Optional<ReadingSession> findTopByBookIdOrderBySessionDateDescCreatedAtDesc(Long bookId);
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("DELETE FROM ReadingSession rs WHERE rs.book.id = :bookId")
+    int deleteAllByBookId(@Param("bookId") Long bookId);
+}

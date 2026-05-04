@@ -1,0 +1,29 @@
+$kind: http-request
+url: http://localhost:8083/api/users
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"fullName\": \"Bhavani S\",\r
+
+    \  \"email\": \"bhavani@example.com\",\r
+
+    \  \"password\": \"Bhavani@123\",\r
+
+    \  \"gender\": \"Female\",\r
+
+    \  \"interests\": [\"Reading\", \"Coding\", \"Music\"],\r
+
+    \  \"role\": \"Student\",\r
+
+    \  \"membershipDate\": \"2026-04-21\",\r
+
+    \  \"loginTime\": \"2026-04-21T13:20:00\",\r
+
+    \  \"age\": 21,\r
+
+    \  \"profileFileName\": \"profile.jpg\"\r
+
+    }"
+order: 4503193964851292

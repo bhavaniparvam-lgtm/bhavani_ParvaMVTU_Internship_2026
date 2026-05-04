@@ -1,0 +1,86 @@
+package com.tsukuyomi.shiori.service;
+
+import com.tsukuyomi.shiori.entity.Reminder;
+import com.tsukuyomi.shiori.entity.User;
+import com.tsukuyomi.shiori.repository.ReminderRepository;
+import com.tsukuyomi.shiori.repository.UserRepository;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
+@Service
+public class ReminderEmailScheduler {
+
+    private final UserRepository userRepository;
+    private final ReminderRepository reminderRepository;
+    private final EmailService emailService;
+
+    public ReminderEmailScheduler(UserRepository userRepository,
+                                  ReminderRepository reminderRepository,
+                                  EmailService emailService) {
+        this.userRepository = userRepository;
+        this.reminderRepository = reminderRepository;
+        this.emailService = emailService;
+    }
+
+    @Scheduled(cron = "0 0 * * * *")
+    public void sendInactivityReminderEmail() {
+        List<User> users = userRepository.findAll();
+        if (users.isEmpty()) {
+            return;
+        }
+
+        List<Reminder> reminders = reminderRepository.findAll();
+        if (reminders.isEmpty()) {
+            return;
+        }
+
+        LocalDateTime inactivityThreshold = LocalDateTime.now().minusDays(2);
+
+        for (User user : users) {
+            if (!isEligibleForReminder(user, inactivityThreshold)) {
+                continue;
+            }
+
+            Reminder randomReminder = getRandomReminder(reminders);
+
+            emailService.sendReminderEmail(
+                    user.getEmail(),
+                    randomReminder.getTitle(),
+                    randomReminder.getNote()
+            );
+
+            user.setLastReminderEmailSentAt(LocalDateTime.now());
+            userRepository.save(user);
+        }
+    }
+
+    private boolean isEligibleForReminder(User user, LocalDateTime inactivityThreshold) {
+        if (user.getEmail() == null || user.getEmail().isBlank()) {
+            return false;
+        }
+
+        if (user.getLastActiveAt() == null) {
+            return false;
+        }
+
+        if (user.getLastActiveAt().isAfter(inactivityThreshold)) {
+            return false;
+        }
+
+        if (user.getLastReminderEmailSentAt() != null &&
+                user.getLastReminderEmailSentAt().isAfter(user.getLastActiveAt())) {
+            return false;
+        }
+
+        return true;
+    }
+
+    private Reminder getRandomReminder(List<Reminder> reminders) {
+        int randomIndex = ThreadLocalRandom.current().nextInt(reminders.size());
+        return reminders.get(randomIndex);
+    }
+}

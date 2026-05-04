@@ -1,0 +1,29 @@
+$kind: http-request
+url: http://localhost:8083/api/users/1
+method: PUT
+body:
+  type: json
+  content: "{\r
+
+    \  \"fullName\": \"Bhavani S Updated\",\r
+
+    \  \"email\": \"bhavaniupdated@example.com\",\r
+
+    \  \"password\": \"Bhavani@456\",\r
+
+    \  \"gender\": \"Female\",\r
+
+    \  \"interests\": [\"Reading\", \"Coding\", \"Design\"],\r
+
+    \  \"role\": \"Admin\",\r
+
+    \  \"membershipDate\": \"2026-04-21\",\r
+
+    \  \"loginTime\": \"2026-04-21T14:00:00\",\r
+
+    \  \"age\": 22,\r
+
+    \  \"profileFileName\": \"updated-profile.jpg\"\r
+
+    }"
+order: 4503599545407161

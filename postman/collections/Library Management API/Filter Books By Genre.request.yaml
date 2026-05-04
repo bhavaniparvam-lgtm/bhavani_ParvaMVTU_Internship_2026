@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8083/api/books/genre?genre=Fiction
+method: GET
+queryParams:
+  genre: Fiction
+order: 4502357001271599

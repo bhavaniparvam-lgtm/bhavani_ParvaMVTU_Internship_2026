@@ -1,0 +1,5 @@
+package com.tsukuyomi.shiori.service;
+
+public class ReminderEmailScheduler {
+
+}

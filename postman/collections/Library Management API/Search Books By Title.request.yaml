@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8083/api/books/search?title=Mistakes
+method: GET
+queryParams:
+  title: Mistakes
+order: 4500533001475094

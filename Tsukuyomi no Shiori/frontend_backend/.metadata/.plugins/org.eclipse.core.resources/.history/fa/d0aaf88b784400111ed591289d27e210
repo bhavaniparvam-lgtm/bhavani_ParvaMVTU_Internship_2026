@@ -1,0 +1,11 @@
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface BookMoodRepository extends JpaRepository<BookMood, Long> {
+
+    @Modifying
+    @Query("DELETE FROM BookMood bm WHERE bm.book.id = :bookId")
+    void deleteByBookId(@Param("bookId") Long bookId);
+}

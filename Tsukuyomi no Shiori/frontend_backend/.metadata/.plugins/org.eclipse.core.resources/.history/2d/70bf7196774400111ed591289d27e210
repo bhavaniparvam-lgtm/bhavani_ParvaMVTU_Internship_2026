@@ -1,0 +1,163 @@
+package com.tsukuyomi.shiori.service;
+
+import com.tsukuyomi.shiori.dto.BookRequestDto;
+import com.tsukuyomi.shiori.dto.BookResponseDto;
+import com.tsukuyomi.shiori.entity.Book;
+import com.tsukuyomi.shiori.enums.BookStatus;
+import com.tsukuyomi.shiori.exception.BookNotFoundException;
+import com.tsukuyomi.shiori.exception.DuplicateBookException;
+import com.tsukuyomi.shiori.repository.BookMoodRepository;
+import com.tsukuyomi.shiori.repository.BookRepository;
+import com.tsukuyomi.shiori.repository.CreativeEntryRepository;
+import com.tsukuyomi.shiori.repository.ReadingSessionRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+@Service
+public class BookService {
+
+    private final BookRepository bookRepository;
+    private final CreativeEntryRepository creativeEntryRepository;
+    private final BookMoodRepository bookMoodRepository;
+    private final ReadingSessionRepository readingSessionRepository;
+
+    public BookService(BookRepository bookRepository,
+                       CreativeEntryRepository creativeEntryRepository,
+                       BookMoodRepository bookMoodRepository,
+                       ReadingSessionRepository readingSessionRepository) {
+        this.bookRepository = bookRepository;
+        this.creativeEntryRepository = creativeEntryRepository;
+        this.bookMoodRepository = bookMoodRepository;
+        this.readingSessionRepository = readingSessionRepository;
+    }
+
+    public BookResponseDto createBook(BookRequestDto requestDto) {
+        boolean alreadyExists = bookRepository.existsByTitleIgnoreCaseAndAuthorIgnoreCase(
+                requestDto.getTitle(),
+                requestDto.getAuthor()
+        );
+
+        if (alreadyExists) {
+            throw new DuplicateBookException("This book already exists on your bookshelf");
+        }
+
+        Book book = new Book();
+        applyBookRequestToEntity(book, requestDto);
+
+        Book savedBook = bookRepository.save(book);
+        return mapToResponseDto(savedBook);
+    }
+
+    public List<BookResponseDto> getAllBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public BookResponseDto getBookById(Long id) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        return mapToResponseDto(book);
+    }
+
+    public List<BookResponseDto> getBooksByStatus(BookStatus status) {
+        return bookRepository.findByStatus(status)
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public List<BookResponseDto> searchBooksByTitle(String title) {
+        return bookRepository.findByTitleContainingIgnoreCase(title)
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public List<BookResponseDto> searchBooksByAuthor(String author) {
+        return bookRepository.findByAuthorContainingIgnoreCase(author)
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public BookResponseDto updateBook(Long id, BookRequestDto requestDto) {
+        Book existingBook = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        boolean duplicateExists = bookRepository.existsByTitleIgnoreCaseAndAuthorIgnoreCase(
+                requestDto.getTitle(),
+                requestDto.getAuthor()
+        );
+
+        boolean sameIdentity =
+                existingBook.getTitle().equalsIgnoreCase(requestDto.getTitle()) &&
+                existingBook.getAuthor().equalsIgnoreCase(requestDto.getAuthor());
+
+        if (duplicateExists && !sameIdentity) {
+            throw new DuplicateBookException(
+                    "Another book with the same title and author already exists on your bookshelf"
+            );
+        }
+
+        applyBookRequestToEntity(existingBook, requestDto);
+
+        Book updatedBook = bookRepository.save(existingBook);
+        return mapToResponseDto(updatedBook);
+    }
+
+    @Transactional
+    public void deleteBook(Long id) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        creativeEntryRepository.unlinkBookFromCreativeEntries(id);
+        bookRepository.delete(book);
+    }
+
+
+
+
+
+
+    private void applyBookRequestToEntity(Book book, BookRequestDto requestDto) {
+        book.setTitle(requestDto.getTitle());
+        book.setAuthor(requestDto.getAuthor());
+        book.setCoverImageUrl(requestDto.getCoverImageUrl());
+        book.setDescription(requestDto.getDescription());
+        book.setMoonRating(requestDto.getMoonRating());
+        book.setTotalPages(requestDto.getTotalPages());
+        book.setStatus(requestDto.getStatus());
+        book.setNotes(requestDto.getNotes());
+        book.setBestLiner(requestDto.getBestLiner());
+        book.setFavouriteChapter(requestDto.getFavouriteChapter());
+        book.setSpiciestChapter(requestDto.getSpiciestChapter());
+        book.setOneLineReaction(requestDto.getOneLineReaction());
+        book.setEmotionalReactionNotes(requestDto.getEmotionalReactionNotes());
+    }
+
+    private BookResponseDto mapToResponseDto(Book book) {
+        return new BookResponseDto(
+                book.getId(),
+                book.getTitle(),
+                book.getAuthor(),
+                book.getCoverImageUrl(),
+                book.getDescription(),
+                book.getMoonRating(),
+                book.getTotalPages(),
+                book.getStatus(),
+                book.getNotes(),
+                book.getBestLiner(),
+                book.getFavouriteChapter(),
+                book.getSpiciestChapter(),
+                book.getOneLineReaction(),
+                book.getEmotionalReactionNotes(),
+                book.getCreatedAt(),
+                book.getUpdatedAt()
+        );
+    }
+}

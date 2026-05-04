@@ -1,0 +1,20 @@
+@OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+private List<ReadingSession> readingSessions = new ArrayList<>();
+
+public List<ReadingSession> getReadingSessions() {
+    return readingSessions;
+}
+
+public void setReadingSessions(List<ReadingSession> readingSessions) {
+    this.readingSessions = readingSessions;
+}
+
+public void addReadingSession(ReadingSession readingSession) {
+    this.readingSessions.add(readingSession);
+    readingSession.setBook(this);
+}
+
+public void removeReadingSession(ReadingSession readingSession) {
+    this.readingSessions.remove(readingSession);
+    readingSession.setBook(null);
+}

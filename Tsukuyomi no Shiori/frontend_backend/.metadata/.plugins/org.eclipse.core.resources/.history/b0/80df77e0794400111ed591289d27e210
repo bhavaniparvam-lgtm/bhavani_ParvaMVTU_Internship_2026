@@ -1,0 +1,114 @@
+package com.tsukuyomi.shiori.service;
+
+import com.tsukuyomi.shiori.dto.BookRequestDto;
+import com.tsukuyomi.shiori.dto.BookResponseDto;
+import com.tsukuyomi.shiori.entity.Book;
+import com.tsukuyomi.shiori.enums.BookStatus;
+import com.tsukuyomi.shiori.exception.BookDeletionNotAllowedException;
+import com.tsukuyomi.shiori.exception.BookNotFoundException;
+import com.tsukuyomi.shiori.exception.DuplicateBookException;
+import com.tsukuyomi.shiori.repository.BookRepository;
+import com.tsukuyomi.shiori.repository.CreativeEntryRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class BookService {
+
+    private final BookRepository bookRepository;
+    private final CreativeEntryRepository creativeEntryRepository;
+
+    public BookService(BookRepository bookRepository,
+                       CreativeEntryRepository creativeEntryRepository) {
+        this.bookRepository = bookRepository;
+        this.creativeEntryRepository = creativeEntryRepository;
+    }
+
+    public BookResponseDto createBook(BookRequestDto requestDto) {
+        boolean alreadyExists = bookRepository.existsByTitleIgnoreCaseAndAuthorIgnoreCase(
+                requestDto.getTitle(),
+                requestDto.getAuthor()
+        );
+
+        if (alreadyExists) {
+            throw new DuplicateBookException("This book already exists on your bookshelf");
+        }
+
+        Book book = new Book();
+        applyBookRequestToEntity(book, requestDto);
+
+        Book savedBook = bookRepository.save(book);
+        return mapToResponseDto(savedBook);
+    }
+
+    public List<BookResponseDto> getAllBooks() {
+        return bookRepository.findAll()
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public BookResponseDto getBookById(Long id) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        return mapToResponseDto(book);
+    }
+
+    public List<BookResponseDto> getBooksByStatus(BookStatus status) {
+        return bookRepository.findByStatus(status)
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public List<BookResponseDto> searchBooksByTitle(String title) {
+        return bookRepository.findByTitleContainingIgnoreCase(title)
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public List<BookResponseDto> searchBooksByAuthor(String author) {
+        return bookRepository.findByAuthorContainingIgnoreCase(author)
+                .stream()
+                .map(this::mapToResponseDto)
+                .toList();
+    }
+
+    public BookResponseDto updateBook(Long id, BookRequestDto requestDto) {
+        Book existingBook = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        boolean duplicateExists = bookRepository.existsByTitleIgnoreCaseAndAuthorIgnoreCase(
+                requestDto.getTitle(),
+                requestDto.getAuthor()
+        );
+
+        boolean sameIdentity =
+                existingBook.getTitle().equalsIgnoreCase(requestDto.getTitle()) &&
+                existingBook.getAuthor().equalsIgnoreCase(requestDto.getAuthor());
+
+        if (duplicateExists && !sameIdentity) {
+            throw new DuplicateBookException("Another book with the same title and author already exists on your bookshelf");
+        }
+
+        applyBookRequestToEntity(existingBook, requestDto);
+
+        Book updatedBook = bookRepository.save(existingBook);
+        return mapToResponseDto(updatedBook);
+    }
+
+    public void deleteBook(Long id) {
+        Book existingBook = bookRepository.findById(id)
+                .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
+
+        if (creativeEntryRepository.existsByBookId(id)) {
+            throw new BookDeletionNotAllowedException(
+                    "Cannot delete this book because it is linked to one or more creative entries."
+            );
+        }
+
+        bookRepository.delete(existingBook);
+    }

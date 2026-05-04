@@ -1,0 +1,19 @@
+$kind: http-request
+name: http://localhost:8083/api/auth/register
+url: http://localhost:8083/api/auth/register
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"displayName\": \"Shiori Moon\",\r
+
+    \  \"email\": \"shiori.moon.01@example.com\",\r
+
+    \  \"password\": \"Moonlit@123\",\r
+
+    \  \"secretQuestion\": \"What is the name of your moonlit library?\",\r
+
+    \  \"secretAnswer\": \"Tsukuyomi\"\r
+
+    }"

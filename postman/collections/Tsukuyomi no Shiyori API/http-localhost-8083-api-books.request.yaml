@@ -1,0 +1,20 @@
+$kind: http-request
+name: http://localhost:8083/api/books
+url: http://localhost:8083/api/books
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \  \"title\": \"The Night Circus\",\r
+
+    \  \"author\": \"Erin Morgenstern\",\r
+
+    \  \"status\": \"READING\"\r
+
+    }"
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGlvcml1c2VyQGdtYWlsLmNvbSIsImlhdCI6MTc3NjgzODA2NCwiZXhwIjoxNzc2OTI0NDY0fQ.MsydGyQEUYK8a1lxKk0Zi8oLH35-37Fxodi0seO7DCI
+order: 2285985396162559

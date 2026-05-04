@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8083/api/authors
+method: GET
+order: 711128797163261

@@ -1,0 +1,16 @@
+package com.tsukuyomi.shiori.repository;
+
+import com.tsukuyomi.shiori.entity.CreativeEntry;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+public interface CreativeEntryRepository extends JpaRepository<CreativeEntry, Long> {
+
+    boolean existsByBookId(Long bookId);
+
+    @Modifying(flushAutomatically = true, clearAutomatically = true)
+    @Query("UPDATE CreativeEntry ce SET ce.book = null WHERE ce.book.id = :bookId")
+    int unlinkBookFromCreativeEntries(@Param("bookId") Long bookId);
+}

@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8083/api/books/available?available=true
+method: GET
+queryParams:
+  available: "true"
+order: 4503047064851442
